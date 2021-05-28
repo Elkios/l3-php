@@ -4,6 +4,7 @@
 class Voiture
 {
 
+    const NB_ROUES = 4;
     private $couleur;
     private $puissance;
     private $vitesse;
