@@ -2,5 +2,8 @@
 
 ### Mathys POMIER - APP
 
-#### TP1 :
+#### TP1 ( PHP Basique ):
 * **Exercice 1** : ✅
+
+#### TP2 ( Début POO ):
+* **Exercice 1** : 🚧
