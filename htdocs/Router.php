@@ -12,8 +12,9 @@ class Router
         $json_file = file_get_contents("routes.json");
         $json = json_decode($json_file, true);
         foreach ($json as $route) {
-            if(isset($route["path"]) && $route["controller"])
+            if(isset($route["path"]) && isset($route["controller"])){
                 $this->map_uri_controller[$route["path"]] = $route["controller"];
+            }
         }
     }
 
