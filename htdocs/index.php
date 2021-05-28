@@ -6,12 +6,5 @@ error_reporting(E_ALL);
 require_once "Autoload.php";
 Autoload::register();
 
-use App\Controller\HomeController;
-use App\Entity\Product;
-
-$product = new Product();
-$controller = new HomeController();
-
-var_dump($product);
-var_dump($controller);
-
+$router = new Router();
+$router->process();
