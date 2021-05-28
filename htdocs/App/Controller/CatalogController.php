@@ -7,11 +7,11 @@ namespace App\Controller;
 class CatalogController
 {
 
-    public static function view(){
+    public function view(){
         return "view of Catalog";
     }
 
-    public static function viewProduct(){
+    public function viewProduct(){
         return "view of product";
     }
 

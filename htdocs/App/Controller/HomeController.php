@@ -5,7 +5,7 @@ namespace App\Controller;
 class HomeController
 {
 
-    public static function home()
+    public function home()
     {
         return "Hello Home";
     }
