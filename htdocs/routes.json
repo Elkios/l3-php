@@ -14,8 +14,9 @@
     "controller": "CatalogController@viewProduct"
   },
 
-  "catalog_product": {
+  "customers": {
     "path": "/customers",
     "controller": "CustomersController@view"
   }
+
 }
