@@ -12,5 +12,10 @@
   "catalog_product": {
     "path": "/catalog/product",
     "controller": "CatalogController@viewProduct"
+  },
+
+  "catalog_product": {
+    "path": "/customers",
+    "controller": "CustomersController@view"
   }
 }

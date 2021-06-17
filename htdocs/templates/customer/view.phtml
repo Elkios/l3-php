@@ -1,0 +1,13 @@
+<?php include_once("templates/header.phtml") ?>
+
+    <main class="container mx-auto py-10">
+        <h1 class="text-4xl font-bold pb-10">Customers</h1>
+        <ol class="space-y-4">
+            <?php foreach ($customers as $customer) : ?>
+                <li>#<?= $customer->getId() ?>  : <?= $customer->getFirstName() ?> <?= $customer->getLastName() ?></li>
+            <?php endforeach; ?>
+        </ol>
+
+    </main>
+
+<?php include_once("templates/footer.phtml") ?>

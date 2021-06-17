@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Repository\ProductRepository;
+
 class HomeController extends AbstractController
 {
 

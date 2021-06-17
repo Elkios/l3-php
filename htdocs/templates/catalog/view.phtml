@@ -3,9 +3,9 @@
     <main class="container mx-auto py-10">
         <h1 class="text-4xl font-bold pb-10">Catalogue</h1>
         <ol class="space-y-4">
-            <?php foreach ($products as $product) {
-                echo "<li><strong>" . $product["name"] . " : </strong>" . $product["price"] ." € </li>";
-            }?>
+            <?php foreach ($products as $product) : ?>
+                <li><?= $product->getName() ?> à <?= $product->getPrice() ?>€</li>
+            <?php endforeach; ?>
         </ol>
 
     </main>
