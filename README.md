@@ -13,3 +13,5 @@
 #### TP4 - Router (App): ✅
 
 #### TP5 - Render View (App): ✅
+
+#### TP6 - BDD/PDO (App): ✅
