@@ -1,0 +1,14 @@
+<?php include_once("templates/header.phtml") ?>
+
+
+    <main class="container mx-auto py-10 space-y-4">
+        <h1 class="text-4xl font-bold">Catalogue</h1>
+        <h1 class="font-bold">Produit <?= $product["name"] ?></h1>
+
+        <p><strong>Description :</strong> <?= $product["description"] ?></p>
+
+        <p><strong>Prix :</strong>  <?= $product["price"] ?></p>
+
+    </main>
+
+<?php include_once("templates/footer.phtml") ?>

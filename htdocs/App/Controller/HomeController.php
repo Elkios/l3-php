@@ -2,11 +2,12 @@
 
 namespace App\Controller;
 
-class HomeController
+class HomeController extends AbstractController
 {
 
     public function home()
     {
-        return "Hello Home";
+        return $this->render('home.phtml', []);
     }
+
 }

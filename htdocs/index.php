@@ -7,4 +7,4 @@ require_once "Autoload.php";
 Autoload::register();
 
 $router = new Router();
-$router->process();
+echo $router->process();

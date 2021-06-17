@@ -1,0 +1,13 @@
+<?php include_once("templates/header.phtml") ?>
+
+    <main class="container mx-auto py-10">
+        <h1 class="text-4xl font-bold pb-10">Catalogue</h1>
+        <ol class="space-y-4">
+            <?php foreach ($products as $product) {
+                echo "<li><strong>" . $product["name"] . " : </strong>" . $product["price"] ." € </li>";
+            }?>
+        </ol>
+
+    </main>
+
+<?php include_once("templates/footer.phtml") ?>
