@@ -11,3 +11,5 @@
 #### TP3 - Autoloader (App): ✅
 
 #### TP4 - Router (App): ✅
+
+#### TP5 - Render View (App): ✅
