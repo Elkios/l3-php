@@ -12,7 +12,7 @@ class CustomersController extends AbstractController
     public function view()
     {
         $customers = (new CustomerRepository())->findAll();
-        return $this->render("customer/view.phtml", ['customers' => $customers]);
+        return $this->render("customer/view.phtml", ['pageName' => 'Clients', 'customers' => $customers]);
     }
 
 }

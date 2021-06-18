@@ -9,8 +9,6 @@ use PDO;
 
 abstract class AbstractRepository implements RepositoryInterface
 {
-    
-    protected $className;
 
     public function getConnexion() {
         return Connexion::getInstance()->getConnexion();

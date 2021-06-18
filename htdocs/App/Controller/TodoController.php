@@ -10,10 +10,12 @@ class TodoController extends AbstractController
         $client = new \GuzzleHttp\Client();
         $response = $client->request('GET', 'https://jsonplaceholder.typicode.com/todos');
 
-        if($response->getStatusCode() != 200) new \Exception("Failed to call API");
+        if($response->getStatusCode() != 200) {
+            new \Exception("Failed to call API");
+        }
 
         $todos = json_decode($response->getBody()->getContents());
-        $this->render("todos/view.phtml", ["todos" => $todos]);
+        $this->render("todos/view.phtml", ['pageName' => 'Todo List', "todos" => $todos]);
     }
 
 }
