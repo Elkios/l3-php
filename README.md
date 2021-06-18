@@ -15,3 +15,5 @@
 #### TP5 - Render View (App): ✅
 
 #### TP6 - BDD/PDO (App): ✅
+
+#### TP7 - Composer/Guzzle/Todos (App): ✅
