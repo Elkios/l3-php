@@ -17,6 +17,11 @@
   "customers": {
     "path": "/customers",
     "controller": "CustomersController@view"
+  },
+
+  "todos": {
+    "path": "/todos",
+    "controller": "TodoController@view"
   }
 
 }
