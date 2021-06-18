@@ -5,18 +5,11 @@ namespace App\Entity;
 class Customer implements EntityInterface
 {
 
+    const PRIMARY_KEY = "id";
 
     private $id;
     private $firstname;
     private $lastname;
-
-
-    public function __construct($id, $firstname, $lastname)
-    {
-        $this->id = $id;
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
-    }
 
     /**
      * @return mixed

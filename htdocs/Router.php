@@ -25,7 +25,7 @@ class Router
             $controller_method = $this->map_uri_controller[$uri];
             list($controller, $method) = explode("@", $controller_method, 2);
             $controller = "App\Controller\\" . $controller;
-            echo (new $controller())->$method();
+            (new $controller())->$method();
         }else {
             http_response_code(404);
             echo "404";

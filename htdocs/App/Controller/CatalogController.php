@@ -11,8 +11,8 @@ class CatalogController extends AbstractController
 {
 
     public function view(){
-        //$products =  (new ProductRepository())->findAll();
-        $products = (new ProductRepository())->findBy("name", "Chemise");
+        $products =  (new ProductRepository())->findAll();
+        //$products = (new ProductRepository())->findBy("name", "Chemise");
         return $this->render("catalog/view.phtml", ['products' => $products]);
     }
 

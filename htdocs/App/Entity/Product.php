@@ -5,18 +5,11 @@ namespace App\Entity;
 class Product implements EntityInterface
 {
 
+    const PRIMARY_KEY = "id";
 
     private $id;
     private $name;
     private $price;
-
-
-    public function __construct($id, $name, $price)
-    {
-        $this->id = $id;
-        $this->name = $name;
-        $this->price = $price;
-    }
 
     /**
      * @return mixed
