@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Product;
+use App\Entity\Pronostic;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Product|null find($id, $lockMode = null, $lockVersion = null)
- * @method Product|null findOneBy(array $criteria, array $orderBy = null)
- * @method Product[]    findAll()
- * @method Product[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Pronostic|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Pronostic|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Pronostic[]    findAll()
+ * @method Pronostic[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ProductRepository extends ServiceEntityRepository
+class PronosticRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Product::class);
+        parent::__construct($registry, Pronostic::class);
     }
 
     // /**
-    //  * @return Product[] Returns an array of Product objects
+    //  * @return Pronostic[] Returns an array of Pronostic objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ProductRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Product
+    public function findOneBySomeField($value): ?Pronostic
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')

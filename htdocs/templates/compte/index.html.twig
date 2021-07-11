@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <div class="container mx-auto my-auto rounded bg-gray-150 shadow p-10 space-y-5">
+        <div class="text-3xl font-bold">Bonjour ! 👋</div>
+
+        <div class="text-xl font-bold">Votre nom d'utilisateur : <span class="font-normal">{{ user.username }}</span></div>
+
+        <div class="text-xl font-normal">
+            Vous avez accumulé jusqu'à aujourd'hui un score total de <span class="font-bold">{{ totalScore }}</span>
+            ce qui vous place à la place <span class="font-bold">n°{{ rank }}</span> du <a class="text-blue-500 hover:text-blue-600 hover:underline" href="/classement">classement</a> !
+        </div>
+
+        <div class="text-xl font-bold">Vous avez parié sur les matchs suivant : </div>
+        <div class="space-y-4">
+            {% for key, prono in pronostics %}
+                <div class="py-2 px-4 bg-gray-200 rounded shadow space-y-3">
+                    <div class="flex">
+                        <div class="w-full text-center text-xl font-bold">{{ prono.domicileEquipe }}</div>
+                        <div>VS</div>
+                        <div class="w-full text-center text-xl font-bold">{{ prono.exterieurEquipe }}</div>
+                    </div>
+                    <div class="bg-red-400 text-white rounded text-center py-1 text-sm font-bold">Votre pari</div>
+                    <div class="flex">
+                        <div class="w-full text-center text-xl font-bold">{{ prono.domicileBet }}</div>
+                        <div></div>
+                        <div class="w-full text-center text-xl font-bold">{{ prono.exterieurBet }}</div>
+                    </div>
+                    {% if prono.winner is defined %}
+                        <div class="bg-blue-400 text-white rounded text-center py-1 text-sm font-bold">Résultat du match</div>
+                        <div class="flex">
+                            <div class="w-full text-center text-xl font-bold">{{ prono.scoreDomicile }}</div>
+                            <div></div>
+                            <div class="w-full text-center text-xl font-bold">{{ prono.scoreExterieur }}</div>
+                        </div>
+                        {% if prono.score == 0 %}
+                            <div class="bg-red-400 text-white rounded text-center py-1 text-sm font-bold">Vous avez perdu 🙁 +0</div>
+                        {% elseif prono.score == 1 %}
+                            <div class="bg-blue-400 text-white rounded text-center py-1 text-sm font-bold">Presque parfait, vous avez tout de même trouvé le vainqueur, bravo ! 😁 +1</div>
+                        {% else %}
+                            <div class="bg-green-400 text-white rounded text-center py-1 text-sm font-bold">Félicitation vous avez tout bon 🎉 +3</div>
+                        {% endif %}
+                    {% else %}
+                        <div class="bg-yellow-400 text-white rounded text-center py-1 text-sm font-bold">En attente du résultat du match</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

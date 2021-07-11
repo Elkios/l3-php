@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter{% endblock %}
+
+{% block body %}
+
+    <form method="POST">
+    <div class="text-gray-800 antialiased px-4 py-6 flex flex-col justify-center align-content items-center sm:py-12">
+        <div class="relative sm:max-w-xl text-center w-1/2">
+            <span class="text-2xl font-light">Se connecter</span>
+            <div class="relative mt-4 bg-white shadow-md sm:rounded-lg text-left">
+                <div class="h-2 bg-indigo-400 rounded-t-md"></div>
+                <div class="py-6 px-8">
+                    <label class="block font-semibold">Email</label>
+                        <input
+                                name="email"
+                                id="inputEmail"
+                                type="text"
+                                placeholder="Email"
+                                class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md"
+                        >
+                        <label class="block mt-3 font-semibold">Mot de passe</label>
+                        <input
+                                name="password"
+                                id="inputPassword"
+                                type="password"
+                                placeholder="Mot de passe"
+                                class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md"
+                        >
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+                        <div class="flex justify-between items-baseline">
+                            <input type="submit" value="Se connecter" class="cursor-pointer mt-4 bg-indigo-500 text-white py-2 px-6 rounded-lg">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matchs & Pronostics{% endblock %}
+
+{% block body %}
+
+<div class="container mx-auto w-1/2">
+    <h1 class="text-3xl font-bold text-center pt-5 uppercase">⚽ ️️Liste des matchs ⚽️</h1>
+
+    <div class="my-5 py-10">
+        {% for key, match in matchs %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') and date(match.date) > date() %}
+                <div class="bg-gray-200 rounded py-4 px-4 mb-4 flex flex-col">
+                    <form class="flex flex-col w-full space-y-8" method="POST" action="/pronostic/add">
+                        <div class="flex">
+                            <div class="w-full text-center py-1 px-2 bg-yellow-500 text-white text-sm rounded">
+                                Ce match aura lieu le  {{ match.date|date('d/m/Y à H:i') }}
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="w-full text-center text-xl">{{ match.teams.domicile }}</div>
+                            <div class="w-10 font-bold">VS</div>
+                            <div class="w-full text-center text-xl">{{ match.teams.exterieur }}</div>
+                        </div>
+                        <div class="flex">
+                            <div class="w-full text-center">
+                                <input class="w-8 h-8 text-center rounded-full" name="domicile_bet" placeholder="0" max="9" min="0">
+                            </div>
+                            <input class="cursor-pointer bg-blue-500 hover:bg-blue-700 py-1 px-2 rounded text-white text-sm" type="submit" value="Parier">
+                            <div class="w-full text-center">
+                                <input class="w-8 h-8 text-center rounded-full" name="exterieur_bet" placeholder="0" max="9" min="0">
+                            </div>
+
+                        </div>
+                        <input name="match_id" value="{{ key }}" type="hidden">
+
+                    </form>
+                </div>
+            {% else %}
+                <div class="bg-gray-200 rounded py-4 px-4 mb-4 flex flex-col space-y-8">
+                    {% if date(match.date) > date() %}
+                        <div class="flex">
+                            <div class="w-full text-center py-1 px-2 bg-yellow-500 text-white text-sm rounded">
+                                Ce match aura lieu le  {{ match.date|date('d/m/Y à H:i') }}
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="flex">
+                        {% if
+                            (match.scores is defined and match.scores.tireaubut and match.scores.winner != "domicile")
+                            or (match.scores is defined and match.scores.domicile < match.scores.exterieur)
+                        %}
+                            <div class="w-full text-center py-1 px-2 bg-red-500 text-white text-sm rounded">
+                                    Perdant
+                            </div>
+                        {% else %}
+                            <div class="w-full text-center py-1 px-2 bg-green-500 text-white text-sm rounded">
+                                Vainqueur
+                            </div>
+                        {% endif %}
+                        <div class="w-10 text-center"></div>
+                        {% if
+                            (match.scores is defined and match.scores.tireaubut and match.scores.winner != "exterieur")
+                            or (match.scores is defined and match.scores.domicile > match.scores.exterieur)
+                        %}
+                            <div class="w-full text-center py-1 px-2 bg-red-500 text-white text-sm rounded">
+                                Perdant
+                            </div>
+                        {% else %}
+                            <div class="w-full text-center py-1 px-2 bg-green-500 text-white text-sm rounded">
+                                Vainqueur
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="flex">
+                        <div class="w-full text-center text-xl">{{ match.teams.domicile }}</div>
+                        <div class="w-10 font-bold">VS</div>
+                        <div class="w-full text-center text-xl">{{ match.teams.exterieur }}</div>
+                    </div>
+                    <div class="flex justify-center">
+                        {% if date(match.date) > date() %}
+                            <div class="w-auto text-center py-1 px-2 bg-indigo-600 hover:bg-indigo-400 text-white text-sm rounded">
+                                <a href="/login">Connectez-vous pour parier</a>
+                            </div>
+                        {% else %}
+                            <div class="w-full text-center">
+                                {% if  match.scores is defined  %}{{ match.scores.domicile }} {% endif %}
+                            </div>
+                            <div class="w-auto text-center py-1 px-2 bg-green-600 text-white text-sm rounded">
+                            terminé
+                             </div>
+                            <div class="w-full text-center">
+                                {% if match.scores is defined %}{{ match.scores.exterieur }} {% endif %}
+                            </div>
+                        {% endif %}
+
+                    </div>
+                    {% if match.scores is defined and match.scores.tireaubut %}
+                        <div class="flex">
+                            <div class="w-full text-center py-1 px-2 bg-blue-500 text-white text-sm rounded">
+                                Victoire par tir au but
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+
+
+</div>
+{% endblock %}

@@ -32,8 +32,8 @@ services:
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
-      PMA_USER: www-data
-      PMA_PASSWORD: www-password
+      PMA_USER: root
+      PMA_PASSWORD: password
     labels:
       - traefik.enable=true
       - traefik.http.routers.phpmyadmin-eurovent.rule=Host(`phpmyadmin.project.com`)

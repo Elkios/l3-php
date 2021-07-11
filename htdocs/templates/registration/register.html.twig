@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'enregistrer{% endblock %}
+
+{% block body %}
+
+    <div class="text-gray-800 antialiased px-4 py-6 flex flex-col justify-center align-content items-center sm:py-12">
+        <div class="relative sm:max-w-xl text-center w-1/2">
+            <span class="text-2xl font-light">S'enregistrer</span>
+            <div class="relative mt-4 bg-white shadow-md sm:rounded-lg text-left">
+                <div class="h-2 bg-indigo-400 rounded-t-md"></div>
+                <div class="py-6 px-8">
+                    {{ form_start(registrationForm) }}
+                    {{ form_row(registrationForm.email, {
+                        "attr": {
+                            class: "border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md",
+                            placeholder: "Votre email"
+                        },
+                        "label_attr": { class: "block mt-3 font-semibold" }
+                    }) }}
+                    {{ form_row(registrationForm.plainPassword, {
+                        label: 'Mot de passe',
+                        "attr": {
+                            class: "border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md",
+                            placeholder: "Votre mot de passe"
+                        },
+                        "label_attr": { class: "block mt-3 font-semibold" }
+                    }) }}
+
+
+                    <div class="flex justify-between items-baseline">
+                        <input type="submit" value="S'enregistrer" class="cursor-pointer mt-4 bg-indigo-500 text-white py-2 px-6 rounded-lg">
+                    </div>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
