@@ -13,7 +13,7 @@ ___
 
 **Étape 2** : Lancer le docker-compose.
 
-**Étape 3** : Importer la base de données à l'aide du fichier `assets/sql/eurobet.sql` que vous pouvez trouver à la racine du projet.
+**Étape 3** : Importer la base de données à l'aide du fichier `assets/sql/eurobet.sql`.
 
 **Étape 4** : Se rendre sur le site à l'url suivante : http://local.project.com/
 
